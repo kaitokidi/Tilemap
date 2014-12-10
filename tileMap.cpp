@@ -46,24 +46,26 @@ int main(){
         //Map size
         //WITH THIS IMPLEMENTATION YOU CAN ONLY USE MAPS WITH A MAXIMUM SIZE OF 9X9
         //a better implementation would take the first characters of the string str before the ','
-        //and the characters after it and use the function .c_str() and atoi like wi did  above
+        //and the characters after it and use the function .c_str() and atoi like we did  above
         mapFile >> str;
         qttyCol = str[0] - '0';
         mapFile >> str;
         qttyRow = str[0] - '0';
                 
+        //initialization of the map definig the size so we can set values
         map = std::vector < std::vector < sf::Vector2i> > (qttyRow, std::vector < sf::Vector2i> (qttyCol));
 
+	//THIS MEAND WHILE THERE ARE STRINGS TO READ ON THE mapFile (eof -> end of file)
         while(!mapFile.eof()){
             mapFile >> str;
+            //again we are working with 9x9 as the maximum number of different tiles
             char x = str[0]; char y = str[2];
             if(x == 'n' || y == 'n')
-            //THERE IS NO CONTROL AT PAINTING IT SO IMPLEMENT THE CONTROL OR DO NOT DO THIS : D
                 map[source.x][source.y] = sf::Vector2i(-1,-1);
             else{
                 map[source.x][source.y] = sf::Vector2i(x - '0', y - '0');
             }
-
+	//IF THE NEXT CHAR OF THE mapFile IS A \n (return)
             if(mapFile.peek() == '\n'){
                 source.x = 0;
                 ++source.y;
@@ -76,7 +78,7 @@ int main(){
         std::cout << "Can't Open the file" << std::endl;
     }
     
-    sf::RenderWindow window(sf::VideoMode(qttyCol*spritew,qttyRow*spriteh), "title");
+    sf::RenderWindow window(sf::VideoMode(qttyCol*spritew,qttyRow*spriteh), "tilemap <0(O:");
 
     while(window.isOpen()){
         sf::Event event;
@@ -90,13 +92,15 @@ int main(){
             }
         }
         window.clear(sf::Color(250,250,250));
-	    tile.scale(2,2);
+	
         for(int i = 0; i < qttyCol; ++i){
             for(int j = 0; j < qttyRow; ++j){
-                tile.setPosition(i*spritew, j*spriteh);
-                tile.setTextureRect(sf::IntRect(map[i][j].x*sourceTailWidth, map[i][j].y*sourceTailHeigh,sourceTailWidth,sourceTailHeigh));
-		        tile.setScale(spritew/sourceTailWidth,spriteh/sourceTailHeigh);
-                window.draw(tile);
+            	if(map[i][j].x != -1 && map[i][j].y != -1) {
+	                tile.setPosition(i*spritew, j*spriteh);
+	                tile.setTextureRect(sf::IntRect(map[i][j].x*sourceTailWidth, map[i][j].y*sourceTailHeigh,sourceTailWidth,sourceTailHeigh)
+	                tile.setScale(spritew/sourceTailWidth,spriteh/sourceTailHeigh);
+	        	window.draw(tile);
+            	}
             }
         }
         window.display();	
