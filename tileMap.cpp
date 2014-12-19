@@ -97,7 +97,7 @@ int main(){
             for(int j = 0; j < qttyRow; ++j){
             	if(map[i][j].x != -1 && map[i][j].y != -1) {
 	                tile.setPosition(i*spritew, j*spriteh);
-	                tile.setTextureRect(sf::IntRect(map[i][j].x*sourceTailWidth, map[i][j].y*sourceTailHeigh,sourceTailWidth,sourceTailHeigh)
+	                tile.setTextureRect(sf::IntRect(map[i][j].x*sourceTailWidth, map[i][j].y*sourceTailHeigh,sourceTailWidth,sourceTailHeigh);
 	                tile.setScale(spritew/sourceTailWidth,spriteh/sourceTailHeigh);
 	        	window.draw(tile);
             	}
