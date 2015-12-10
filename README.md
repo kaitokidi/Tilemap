@@ -13,3 +13,5 @@ The next values will be each tile we define, for each one, we will use 0,0 0,1 1
 To use it, it is needed SFML libs, on Ubuntu 14 they are already included, in another Operating sistem, you will need to install them
 For Windows, in Visual studio (http://www.sfml-dev.org/tutorials/2.1/start-vc.php) 
 for Linux users (http://www.sfml-dev.org/tutorials/2.1/start-linux.php), and for MAC OS (http://www.sfml-dev.org/tutorials/2.1/start-osx.php) .
+
+Thanks to SFML
