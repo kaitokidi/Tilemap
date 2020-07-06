@@ -108,7 +108,7 @@ int main(){
 
 }
 
-/*
+/* execution tip
 g++ -c tileMap.cpp
 g++ -o tilemap tileMap.o -lsfml-graphics -lsfml-window -lsfml-system
 ./tilemap
