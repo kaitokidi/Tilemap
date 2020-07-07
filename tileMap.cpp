@@ -7,7 +7,7 @@
 
 int main(){
 
-    //WITH THIS WE ASSOCIATE THE FILE Map.txt TO mapFile
+    //WITH THIS WE ASSOCIATE THE FILE Map.txt To mapFile
     std::ifstream mapFile("Map.txt");
 
     sf::Texture tileMapTexture;
